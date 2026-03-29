@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aradhya Bhagwat | Portfolio</title> 
+    <title>Aradhya Bhagwat | Portfolio</title>
+    
+    <!-- Meta & Icons -->
     <link rel="icon" type="image/png" href="Assets/BG.png">
     
+    <!-- External Resources -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +17,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="bg-animation-container"></div>
 
     <header>
         <div class="logo">🌿 Aradhya Bhagwat</div>
@@ -29,6 +33,7 @@
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="hero">
             <div class="hero-content">
                 <h3 class="hero-subtitle">I am a <span id="typing-text"></span><span class="cursor">|</span></h3>
@@ -37,9 +42,9 @@
                    Rooted in nature, powered by code. I design and develop intelligent digital experiences that mirror the efficiency, balance and beauty of the natural world.
                 </p>
                 <div class="hero-socials">
-                    <a href="https://github.com/Aradhya-Bhagwat" target="#"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/aradhya-bhagwat-927723289/" target="#"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"><i class="fa-solid fa-code"></i></a>
+                    <a href="https://github.com/Aradhya-Bhagwat" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/aradhya-bhagwat-927723289/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://leetcode.com/u/AradhyaBhagwat/" target="#" aria-label="Code"><i class="fa-solid fa-code"></i></a>
                 </div>
             </div>
 
@@ -50,108 +55,93 @@
             </div>
         </section>
 
+        <!-- Skills Section -->
         <section id="skills">
             <div class="section-header">
                 <h2 class="section-title">My Skill Tree</h2>
-                <p>Cultivating a diverse set of technical capabilities.</p>
+                <p>Cultivating a diverse set of technical capabilities. Click on the fruits to see more.</p>
             </div>
-            <div class="tree-container">
-                <div class="skill-node core">
-                    <i class="fa-solid fa-seedling"></i>
-                    <span>Core</span>
+            
+            <div class="skill-plant-container">
+                <!-- Background decorative leaves -->
+                <div class="bg-leaf" style="top: 10%; left: 10%; --delay: 0s;"></div>
+                <div class="bg-leaf" style="top: 30%; right: 15%; --delay: 2s;"></div>
+                <div class="bg-leaf" style="bottom: 40%; left: 20%; --delay: 4s;"></div>
+                
+                <div class="plant-trunk">
+                    <div class="branch branch-left" style="bottom: 20%;">
+                        <div class="leaf" style="right: 20%; top: -15px; --rot: -20deg; --delay: 0.1s;"></div>
+                        <div class="leaf" style="right: 60%; top: 5px; --rot: 10deg; --delay: 0.5s;"></div>
+                        <div class="leaf" style="right: 90%; top: -10px; --rot: -30deg; --delay: 0.9s;"></div>
+                    </div>
+                    <div class="branch branch-right" style="bottom: 40%;">
+                        <div class="leaf" style="left: 20%; top: -15px; --rot: 20deg; --delay: 0.2s;"></div>
+                        <div class="leaf" style="left: 60%; top: 5px; --rot: -10deg; --delay: 0.6s;"></div>
+                        <div class="leaf" style="left: 90%; top: -10px; --rot: 30deg; --delay: 1.0s;"></div>
+                    </div>
+                    <div class="branch branch-left" style="bottom: 60%;">
+                        <div class="leaf" style="right: 20%; top: -15px; --rot: -20deg; --delay: 0.3s;"></div>
+                        <div class="leaf" style="right: 60%; top: 5px; --rot: 10deg; --delay: 0.7s;"></div>
+                        <div class="leaf" style="right: 90%; top: -10px; --rot: -30deg; --delay: 1.1s;"></div>
+                    </div>
+                    <div class="branch branch-right" style="bottom: 80%;">
+                        <div class="leaf" style="left: 20%; top: -15px; --rot: 20deg; --delay: 0.4s;"></div>
+                        <div class="leaf" style="left: 60%; top: 5px; --rot: -10deg; --delay: 0.8s;"></div>
+                        <div class="leaf" style="left: 90%; top: -10px; --rot: 30deg; --delay: 1.2s;"></div>
+                    </div>
                 </div>
-                <div class="skill-node" style="--angle: -120deg; --dist: 160px;"><i class="fa-brands fa-html5"></i><span class="label">HTML</span></div>
-                <div class="skill-node" style="--angle: -150deg; --dist: 250px;"><i class="fa-brands fa-css3-alt"></i><span class="label">CSS</span></div>
-                <div class="skill-node" style="--angle: -60deg; --dist: 160px;"><i class="fa-brands fa-swift"></i><span class="label">Swift</span></div>
-                <div class="skill-node" style="--angle: -30deg; --dist: 250px;"><i class="fa-solid fa-mobile-screen"></i><span class="label">SwiftUI</span></div>
-                <div class="skill-node" style="--angle: 90deg; --dist: 180px;"><i class="fa-brands fa-github"></i><span class="label">Git</span></div>
+                <div id="skills-fruits-container">
+                    <!-- Fruits will be dynamically added here via JS -->
+                </div>
+                
+                <div id="skill-description-card" class="skill-card-overlay">
+                    <div class="skill-card-content">
+                        <button id="close-skill-card" class="close-btn">&times;</button>
+                        <i id="skill-icon-display" class="fa-solid fa-seedling"></i>
+                        <h3 id="skill-name-display">Select a skill</h3>
+                        <p id="skill-desc-display">Explore the fruits of my labor to learn more about my technical expertise.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects">
             <h2 class="section-title">Project Garden</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <i class="fa-solid fa-leaf project-icon"></i>
-                        <h3>GreenAura</h3>
-                        <p>An iOS application using plant therapy and meditation music to connect users with nature.</p>
-                        <div class="tag-container">
-                            <span class="tag">SwiftUI</span>
-                            <span class="tag">AVFoundation</span>
-                        </div>
-                        <div class="card-links">
-                            <a href="#"><i class="fa-brands fa-github"></i> View Repo</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <i class="fa-solid fa-newspaper project-icon"></i>
-                        <h3>NewsNexus</h3>
-                        <p>A native news application focused on secure API key storage and real-time requirement engineering.</p>
-                        <div class="tag-container">
-                            <span class="tag">Swift</span>
-                            <span class="tag">REST API</span>
-                        </div>
-                        <div class="card-links">
-                            <a href="#"><i class="fa-brands fa-github"></i> View Repo</a>
-                        </div>
-                    </div>
-                </div>
+            <div id="projects-container" class="card-grid">
+                <!-- Projects will be dynamically added here via JS -->
             </div>
         </section>
         
+        <!-- Research Section -->
         <section id="research">
             <h2 class="section-title">Knowledge Grove</h2>
-            <div class="card-grid">
-                <div class="card research-card">
-                    <div class="card-content">
-                        <span class="date-tag">Dec 2025</span>
-                        <h3>Agile Process Models in Mobile UX</h3>
-                        <p>A comprehensive analysis of requirement engineering stages for nature-centric mobile apps.</p>
-                        <div class="publication-info">
-                            <p><i class="fa-solid fa-book-open"></i> Published in: Tech-Flora Journal</p>
-                            <a href="#" class="cite-link"><i class="fa-solid fa-link"></i> Read Publication</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card research-card">
-                    <div class="card-content">
-                        <span class="date-tag">March 2026</span>
-                        <h3>Plant-Tech Interaction</h3>
-                        <p>Exploring the inspiration of terrace gardens in building responsive software architecture.</p>
-                        <div class="publication-info">
-                            <p><i class="fa-solid fa-users"></i> Presented at: ICSE Conference 2026</p>
-                            <a href="#" class="cite-link"><i class="fa-solid fa-link"></i> View Presentation</a>
-                        </div>
-                    </div>
-                </div>
+            <div id="research-container" class="card-grid">
+                <!-- Research items will be dynamically added here via JS -->
             </div>
         </section>
        
+        <!-- Contact Section -->
         <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="contact-subtitle">Every great idea starts as a seed.<br>Let’s connect, collaborate and grow something impactful together.</p>
-        
-        <div class="envelope-wrapper">
-            <div class="envelope">
-                <div class="flap"></div>
-                <div class="body"></div>
-                <div class="letter">
-                    <div class="letter-content">
-                        <i class="fa-solid fa-seedling"></i>
-                        <p>Want to grow something together?</p>
-                        <a href="mailto:aradhya.bhagwat@gmail.com" class="contact-link">Click to Send Email</a>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-subtitle">Every great idea starts as a seed.<br>Let’s connect, collaborate and grow something impactful together.</p>
+            
+            <div class="envelope-container">
+                <div class="envelope-wrapper">
+                    <div class="envelope">
+                        <div class="flap"></div>
+                        <div class="body"></div>
+                        <div class="letter">
+                            <div class="letter-content">
+                                <i class="fa-solid fa-seedling"></i>
+                                <p>Want to grow something together?</p>
+                                <a href="mailto:aradhya.bhagwat@gmail.com" class="contact-link">Click to Send Email</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="envelope-prompt">Hover to open, click to contact 🌿</div>
             </div>
-            <div class="envelope-prompt">Hover to open, click to contact 🌿</div>
-        </div>
         </section>
         
     </main>
