@@ -6,7 +6,7 @@
     <title>Aradhya Bhagwat | Portfolio</title> 
     <link rel="icon" type="image/png" href="Assets/BG.png">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -16,9 +16,10 @@
 <body>
 
     <header>
+        <div class="logo">🌿 Aradhya Bhagwat</div>
         <nav>
             <ul>
-                <li><a href="#about">About</a></li>
+                <li><a href="#hero">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#research">Research</a></li> 
@@ -30,15 +31,15 @@
     <main>
         <section id="hero">
             <div class="hero-content">
-                <h3 class="hero-subtitle">Software Engineer & Nature Tech Enthusiast</h3>
-                <h1 class="hero-title">Hi, I'm Aradhya.</h1>
+                <h3 class="hero-subtitle">I am a <span id="typing-text"></span><span class="cursor">|</span></h3>
+                <h1 class="hero-title">Hi There, <br>I'm Aradhya <span class="accent-text">Bhagwat</span></h1>
                 <p class="hero-description">
-                    Building digital experiences that blend modern technology with the tranquility of nature. 
-                    Currently cultivating **GreenAura**—an intersection of plant therapy and clean code.
+                   Rooted in nature, powered by code. I design and develop intelligent digital experiences that mirror the efficiency, balance and beauty of the natural world.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                    <a href="#projects" class="btn btn-secondary">View Work</a>
+                <div class="hero-socials">
+                    <a href="https://github.com/Aradhya-Bhagwat" target="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/aradhya-bhagwat-927723289/" target="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-solid fa-code"></i></a>
                 </div>
             </div>
 
@@ -46,17 +47,12 @@
                 <div class="image-wrapper">
                     <img src="Assets/ProfilePhoto.png" alt="Aradhya Bhagwat" class="profile-img">
                 </div>
-                <div class="floating-icons">
-                    <div class="icon-blob"><i class="fa-solid fa-leaf"></i></div>
-                    <div class="icon-blob"><i class="fa-brands fa-swift"></i></div>
-                    <div class="icon-blob"><i class="fa-solid fa-code"></i></div>
-                </div>
             </div>
         </section>
 
         <section id="skills">
             <div class="section-header">
-                <h2 class="tree-title">My Skill Tree</h2>
+                <h2 class="section-title">My Skill Tree</h2>
                 <p>Cultivating a diverse set of technical capabilities.</p>
             </div>
             <div class="tree-container">
@@ -72,12 +68,92 @@
             </div>
         </section>
 
-        <section id="about">
-            <div class="section-container">
-                <h2>About Me</h2>
-                <p>I am deeply inspired by my terrace garden. I'm passionate about plant therapy and how we can use software to connect more deeply with the natural world.</p>
+        <section id="projects">
+            <h2 class="section-title">Project Garden</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <i class="fa-solid fa-leaf project-icon"></i>
+                        <h3>GreenAura</h3>
+                        <p>An iOS application using plant therapy and meditation music to connect users with nature.</p>
+                        <div class="tag-container">
+                            <span class="tag">SwiftUI</span>
+                            <span class="tag">AVFoundation</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="#"><i class="fa-brands fa-github"></i> View Repo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <i class="fa-solid fa-newspaper project-icon"></i>
+                        <h3>NewsNexus</h3>
+                        <p>A native news application focused on secure API key storage and real-time requirement engineering.</p>
+                        <div class="tag-container">
+                            <span class="tag">Swift</span>
+                            <span class="tag">REST API</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="#"><i class="fa-brands fa-github"></i> View Repo</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+        
+        <section id="research">
+            <h2 class="section-title">Knowledge Grove</h2>
+            <div class="card-grid">
+                <div class="card research-card">
+                    <div class="card-content">
+                        <span class="date-tag">Dec 2025</span>
+                        <h3>Agile Process Models in Mobile UX</h3>
+                        <p>A comprehensive analysis of requirement engineering stages for nature-centric mobile apps.</p>
+                        <div class="publication-info">
+                            <p><i class="fa-solid fa-book-open"></i> Published in: Tech-Flora Journal</p>
+                            <a href="#" class="cite-link"><i class="fa-solid fa-link"></i> Read Publication</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card research-card">
+                    <div class="card-content">
+                        <span class="date-tag">March 2026</span>
+                        <h3>Plant-Tech Interaction</h3>
+                        <p>Exploring the inspiration of terrace gardens in building responsive software architecture.</p>
+                        <div class="publication-info">
+                            <p><i class="fa-solid fa-users"></i> Presented at: ICSE Conference 2026</p>
+                            <a href="#" class="cite-link"><i class="fa-solid fa-link"></i> View Presentation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+        <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="contact-subtitle">Every great idea starts as a seed.<br>Let’s connect, collaborate and grow something impactful together.</p>
+        
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="flap"></div>
+                <div class="body"></div>
+                <div class="letter">
+                    <div class="letter-content">
+                        <i class="fa-solid fa-seedling"></i>
+                        <p>Want to grow something together?</p>
+                        <a href="mailto:aradhya.bhagwat@gmail.com" class="contact-link">Click to Send Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="envelope-prompt">Hover to open, click to contact 🌿</div>
+        </div>
+        </section>
+        
     </main>
 
     <footer>
