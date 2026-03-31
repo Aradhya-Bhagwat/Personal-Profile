@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aradhya Bhagwat | Portfolio</title>
-    
-    <!-- Meta & Icons -->
+    <title>Aradhya Bhagwat | Software Engineer & Nature Tech Enthusiast</title>
+    <meta name="description" content="Portfolio of Aradhya Bhagwat, a Software Engineer and Nature Tech Enthusiast specializing in iOS development, IoT and intelligent digital experiences.">
+    <meta name="keywords" content="Aradhya Bhagwat, Software Engineer, iOS Developer, Nature Tech, IoT, Portfolio, Swift, SwiftUI">
+    <meta name="author" content="Aradhya Bhagwat">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aradhyabhagwat.com/">
+    <meta property="og:title" content="Aradhya Bhagwat | Portfolio">
+    <meta property="og:description" content="Designing and developing intelligent digital experiences that mirror the efficiency, balance and beauty of the natural world.">
+    <meta property="og:image" content="Assets/ProfilePhoto.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://aradhyabhagwat.com/">
+    <meta property="twitter:title" content="Aradhya Bhagwat | Portfolio">
+    <meta property="twitter:description" content="Designing and developing intelligent digital experiences that mirror the efficiency, balance and beauty of the natural world.">
+    <meta property="twitter:image" content="Assets/ProfilePhoto.png">
     <link rel="icon" type="image/png" href="Assets/BG.png">
-    
-    <!-- External Resources -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="bg-animation-container"></div>
-
     <header>
         <div class="logo">🌿 Aradhya Bhagwat</div>
         <nav>
@@ -31,9 +38,7 @@
             </ul>
         </nav>
     </header>
-
     <main>
-        <!-- Hero Section -->
         <section id="hero">
             <div class="hero-content">
                 <h3 class="hero-subtitle">I am a <span id="typing-text"></span><span class="cursor">|</span></h3>
@@ -47,85 +52,43 @@
                     <a href="https://leetcode.com/u/AradhyaBhagwat/" target="#" aria-label="Code"><i class="fa-solid fa-code"></i></a>
                 </div>
             </div>
-
             <div class="hero-image-container">
                 <div class="image-wrapper">
                     <img src="Assets/ProfilePhoto.png" alt="Aradhya Bhagwat" class="profile-img">
                 </div>
             </div>
         </section>
-
-        <!-- Skills Section -->
         <section id="skills">
             <div class="section-header">
-                <h2 class="section-title">My Skill Tree</h2>
-                <p>Cultivating a diverse set of technical capabilities. Click on the fruits to see more.</p>
+                <h2 class="section-title">My Skill Grove</h2>
+                <p>A living snapshot of the tools I grow with. Interact with the glowing spores to explore my expertise.</p>
             </div>
-            
             <div class="skill-plant-container">
-                <!-- Background decorative leaves -->
-                <div class="bg-leaf" style="top: 10%; left: 10%; --delay: 0s;"></div>
-                <div class="bg-leaf" style="top: 30%; right: 15%; --delay: 2s;"></div>
-                <div class="bg-leaf" style="bottom: 40%; left: 20%; --delay: 4s;"></div>
-                
-                <div class="plant-trunk">
-                    <div class="branch branch-left" style="bottom: 20%;">
-                        <div class="leaf" style="right: 20%; top: -15px; --rot: -20deg; --delay: 0.1s;"></div>
-                        <div class="leaf" style="right: 60%; top: 5px; --rot: 10deg; --delay: 0.5s;"></div>
-                        <div class="leaf" style="right: 90%; top: -10px; --rot: -30deg; --delay: 0.9s;"></div>
-                    </div>
-                    <div class="branch branch-right" style="bottom: 40%;">
-                        <div class="leaf" style="left: 20%; top: -15px; --rot: 20deg; --delay: 0.2s;"></div>
-                        <div class="leaf" style="left: 60%; top: 5px; --rot: -10deg; --delay: 0.6s;"></div>
-                        <div class="leaf" style="left: 90%; top: -10px; --rot: 30deg; --delay: 1.0s;"></div>
-                    </div>
-                    <div class="branch branch-left" style="bottom: 60%;">
-                        <div class="leaf" style="right: 20%; top: -15px; --rot: -20deg; --delay: 0.3s;"></div>
-                        <div class="leaf" style="right: 60%; top: 5px; --rot: 10deg; --delay: 0.7s;"></div>
-                        <div class="leaf" style="right: 90%; top: -10px; --rot: -30deg; --delay: 1.1s;"></div>
-                    </div>
-                    <div class="branch branch-right" style="bottom: 80%;">
-                        <div class="leaf" style="left: 20%; top: -15px; --rot: 20deg; --delay: 0.4s;"></div>
-                        <div class="leaf" style="left: 60%; top: 5px; --rot: -10deg; --delay: 0.8s;"></div>
-                        <div class="leaf" style="left: 90%; top: -10px; --rot: 30deg; --delay: 1.2s;"></div>
-                    </div>
+                <div class="tree-canvas">
+                    <div class="plant-trunk"></div>
+                    <div id="skills-fruits-container" aria-label="Skill grove fruits"></div>
                 </div>
-                <div id="skills-fruits-container">
-                    <!-- Fruits will be dynamically added here via JS -->
-                </div>
-                
                 <div id="skill-description-card" class="skill-card-overlay">
                     <div class="skill-card-content">
                         <button id="close-skill-card" class="close-btn">&times;</button>
                         <i id="skill-icon-display" class="fa-solid fa-seedling"></i>
                         <h3 id="skill-name-display">Select a skill</h3>
-                        <p id="skill-desc-display">Explore the fruits of my labor to learn more about my technical expertise.</p>
+                        <p id="skill-desc-display">Explore the bioluminescent fruits of my labor to learn more about my technical expertise.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Projects Section -->
         <section id="projects">
             <h2 class="section-title">Project Garden</h2>
-            <div id="projects-container" class="card-grid">
-                <!-- Projects will be dynamically added here via JS -->
-            </div>
+            <div id="projects-container" class="card-grid"></div>
         </section>
-        
-        <!-- Research Section -->
         <section id="research">
             <h2 class="section-title">Knowledge Grove</h2>
-            <div id="research-container" class="card-grid">
-                <!-- Research items will be dynamically added here via JS -->
-            </div>
+            <div id="research-container" class="card-grid"></div>
         </section>
-       
-        <!-- Contact Section -->
         <section id="contact">
             <h2 class="section-title">Get In Touch</h2>
             <p class="contact-subtitle">Every great idea starts as a seed.<br>Let’s connect, collaborate and grow something impactful together.</p>
-            
             <div class="envelope-container">
                 <div class="envelope-wrapper">
                     <div class="envelope">
@@ -143,13 +106,10 @@
                 <div class="envelope-prompt">Hover to open, click to contact 🌿</div>
             </div>
         </section>
-        
     </main>
-
     <footer>
-        <p>&copy; 2026 Aradhya Bhagwat | Built with 🌿 and Code</p>
+        <p>&copy; 2026 Aradhya Bhagwat | Built with <i class="fa-solid fa-leaf" style="color: var(--accent-green); margin: 0 5px;"></i> and <i class="fa-solid fa-code" style="color: var(--accent-green); margin: 0 5px;"></i></p>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,6 +1,3 @@
-/**
- * Typing Animation for Hero Section
- */
 const textElement = document.getElementById('typing-text');
 const phrases = [
     "Software Engineer.",
@@ -38,15 +35,71 @@ function type() {
     setTimeout(type, typeSpeed);
 }
 
-/**
- * Skill Plant Logic
- */
 const skillsData = [
-    { name: "HTML5", icon: "fa-brands fa-html5", desc: "The backbone of the web. I use semantic HTML to build accessible and well-structured digital experiences.", pos: { bottom: '22%', left: '-80px' }, delay: 0.1 },
-    { name: "CSS3", icon: "fa-brands fa-css3-alt", desc: "Crafting beautiful, responsive layouts with modern CSS features like Grid, Flexbox, and complex animations.", pos: { bottom: '42%', right: '-80px' }, delay: 0.2 },
-    { name: "Swift", icon: "fa-brands fa-swift", desc: "My primary language for mobile development. Clean, powerful, and safe code for iOS applications.", pos: { bottom: '62%', left: '-80px' }, delay: 0.3 },
-    { name: "SwiftUI", icon: "fa-solid fa-mobile-screen", desc: "Declarative UI building for Apple platforms. I love its efficiency and how it mirrors nature's modularity.", pos: { bottom: '82%', right: '-80px' }, delay: 0.4 },
-    { name: "Git", icon: "fa-brands fa-github", desc: "Version control is essential. I use Git for collaborative development and maintaining clean project histories.", pos: { bottom: '92%', left: '10px' }, delay: 0.5 }
+    {
+        name: "HTML5",
+        icon: "fa-brands fa-html5",
+        desc: "The semantic backbone of the web. I use HTML to build clear, accessible and well-structured interfaces.",
+        position: { x: "15%", y: "45%" },
+        stemAngle: "-25deg",
+        delay: "0.1s"
+    },
+    {
+        name: "CSS3",
+        icon: "fa-brands fa-css3-alt",
+        desc: "I shape polished layouts, responsive systems and visual detail with modern CSS, animation, Grid and Flexbox.",
+        position: { x: "28%", y: "22%" },
+        stemAngle: "-15deg",
+        delay: "0.2s"
+    },
+    {
+        name: "Swift",
+        icon: "fa-brands fa-swift",
+        desc: "My core language for iOS work, helping me build fast, expressive and reliable native experiences.",
+        position: { x: "44%", y: "12%" },
+        stemAngle: "-5deg",
+        delay: "0.3s"
+    },
+    {
+        name: "SwiftUI",
+        icon: "fa-solid fa-mobile-screen",
+        desc: "I use SwiftUI to compose fluid Apple-platform interfaces with reusable views and a clean declarative approach.",
+        position: { x: "58%", y: "12%" },
+        stemAngle: "5deg",
+        delay: "0.4s"
+    },
+    {
+        name: "Git",
+        icon: "fa-brands fa-github",
+        desc: "Version control keeps my work collaborative and intentional, from clean commits to safer iteration.",
+        position: { x: "74%", y: "22%" },
+        stemAngle: "15deg",
+        delay: "0.5s"
+    },
+    {
+        name: "JavaScript",
+        icon: "fa-brands fa-js",
+        desc: "I use JavaScript to bring interfaces to life with interactivity, dynamic content and expressive front-end behavior.",
+        position: { x: "85%", y: "45%" },
+        stemAngle: "25deg",
+        delay: "0.6s"
+    },
+    {
+        name: "UI Design",
+        icon: "fa-solid fa-wand-magic-sparkles",
+        desc: "I enjoy shaping interfaces that feel intuitive, lively and grounded in a strong visual identity.",
+        position: { x: "32%", y: "55%" },
+        stemAngle: "-10deg",
+        delay: "0.7s"
+    },
+    {
+        name: "Problem Solving",
+        icon: "fa-solid fa-lightbulb",
+        desc: "From debugging to architecture decisions, I like breaking hard problems into clear, practical steps.",
+        position: { x: "68%", y: "55%" },
+        stemAngle: "10deg",
+        delay: "0.8s"
+    }
 ];
 
 function initSkillPlant() {
@@ -61,14 +114,13 @@ function initSkillPlant() {
     if (!container) return;
 
     skillsData.forEach(skill => {
-        const fruit = document.createElement('div');
-        fruit.className = 'skill-fruit';
-        
-        if (skill.pos.bottom) fruit.style.bottom = skill.pos.bottom;
-        if (skill.pos.left) fruit.style.left = skill.pos.left;
-        if (skill.pos.right) fruit.style.right = skill.pos.right;
-        
-        fruit.style.animationDelay = `${skill.delay}s`;
+        const fruit = document.createElement('button');
+        fruit.type = 'button';
+        fruit.className = `skill-fruit`;
+        fruit.style.setProperty('--x', skill.position.x);
+        fruit.style.setProperty('--y', skill.position.y);
+        fruit.style.setProperty('--delay', skill.delay);
+        fruit.style.setProperty('--stem-angle', skill.stemAngle);
         
         fruit.innerHTML = `
             <i class="${skill.icon}"></i>
@@ -96,24 +148,31 @@ function initSkillPlant() {
     });
 }
 
-/**
- * Projects Logic
- */
 const projectsData = [
     {
         title: "SkyTrails",
-        description: "Smart Bird Identification and Migration Prediction iOS app using BirdFlow ML, SwiftData for local storage, and Supabase for secure authentication.",
+        eyebrow: "Featured iOS Product",
+        description: "Smart Bird Identification and Migration Prediction iOS app using BirdFlow ML, SwiftData for local storage and Supabase for secure authentication.",
         image: "Assets/SkyTrails.png",
         icon: "fa-solid fa-crow",
+        accent: "accent-sky",
+        status: "Live Build",
+        year: "2026",
         tags: ["Swift StoryBoard", "Supabase", "SwiftData", "Machine Learning"],
+        highlights: ["Bird ID workflow", "Migration prediction", "Secure auth"],
         link: "https://github.com/Aradhya-Bhagwat/MITWPU-Group20-SkyTrails.git"
     },
     {
         title: "NewsNexus",
+        eyebrow: "Native App Concept",
         description: "A native news application focused on secure API key storage and real-time requirement engineering.",
         image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000&auto=format&fit=crop",
         icon: "fa-solid fa-newspaper",
+        accent: "accent-news",
+        status: "Prototype",
+        year: "2025",
         tags: ["Swift", "REST API"],
+        highlights: ["Fast article feed", "Secure keys", "Native reading flow"],
         link: "#"
     }
 ];
@@ -124,22 +183,32 @@ function initProjects() {
 
     projectsData.forEach(project => {
         const card = document.createElement('div');
-        card.className = 'card';
+        card.className = `specimen-card ${project.accent}`;
         
         card.innerHTML = `
-            <div class="card-image">
-                <img src="${project.image}" alt="${project.title} Interface">
+            <div class="specimen-image">
+                <img src="${project.image}" alt="${project.title} Specimen">
             </div>
-            <div class="card-glow"></div>
-            <div class="card-content">
-                <i class="${project.icon} project-icon"></i>
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <div class="tag-container">
-                    ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+            <div class="specimen-badge-row">
+                <span class="specimen-badge">${project.status}</span>
+                <span class="specimen-date">${project.year}</span>
+            </div>
+            <div class="specimen-content">
+                <div class="specimen-title">
+                    <i class="${project.icon}"></i>
+                    <h3>${project.title}</h3>
                 </div>
-                <div class="card-links">
-                    <a href="${project.link}"><i class="fa-brands fa-github"></i> View Repo</a>
+                <p class="specimen-description">${project.description}</p>
+                <div class="specimen-tags">
+                    ${project.tags.map(tag => `<span class="specimen-tag">${tag}</span>`).join('')}
+                </div>
+                <div class="specimen-actions">
+                    <a href="${project.link}" target="_blank" class="specimen-btn specimen-btn-primary">
+                        <i class="fa-brands fa-github"></i> View Repo
+                    </a>
+                    <a href="#contact" class="specimen-btn specimen-btn-secondary">
+                        Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         `;
@@ -147,29 +216,30 @@ function initProjects() {
     });
 }
 
-/**
- * Research Logic
- */
 const researchData = [
     {
-        title: "IoT-Based Environmental Monitoring for Climate Change and Sustainable Development",
-        description: "Contributed a book chapter discussing how IoT sensors collect environmental data like temperature, humidity, and pollution levels to assist in climate change tracking and sustainable development decisions.",
-        date: "October 2024",
-        venue: "Publisher: Routledge",
+        title: "IoT Environmental Monitoring",
+        subtitle: "Climate Change & Sustainable Development",
+        description: "A comprehensive study on leveraging IoT sensors for tracking pollution and climate metrics to drive data-informed sustainable decisions.",
+        date: "Oct 2024",
+        venue: "Routledge Publication",
         icon: "fa-solid fa-book",
+        image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1000&auto=format&fit=crop",
         link: "https://www.routledge.com/Smart-IoT-for-Sustainable-Development/Subhedar-Mahalle-Pawar/p/book/9781032887692",
-        linkLabel: "View Publication",
-        linkIcon: "fa-solid fa-link"
+        linkLabel: "Publication",
+        tags: ["IoT", "Sustainability", "Smart Sensors"]
     },
     {
-        title: "Enhancing Farming Efficiency with a 7-in-1 Soil IoT Sensor",
-        description: "Presented research on a multi-sensor system designed to monitor soil conditions in real-time, enabling data-driven agricultural decisions to improve crop health and overall farming efficiency.",
+        title: "7-in-1 Soil IoT Sensor",
+        subtitle: "Enhancing Farming Efficiency",
+        description: "Research on multi-sensor systems designed for real-time soil health monitoring to optimize crop yield and agricultural efficiency.",
         date: "May 2024",
-        venue: "Presented at: ICAAICS 2024 (Pune)",
+        venue: "ICAAICS 2024 (Pune)",
         icon: "fa-solid fa-microphone-lines",
+        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop",
         link: "#",
-        linkLabel: "View Certificate",
-        linkIcon: "fa-solid fa-award"
+        linkLabel: "Certificate",
+        tags: ["AgriTech", "Data Science", "Sensors"]
     }
 ];
 
@@ -179,17 +249,25 @@ function initResearch() {
 
     researchData.forEach(item => {
         const card = document.createElement('div');
-        card.className = 'card research-card';
+        card.className = 'specimen-card research-specimen';
         
         card.innerHTML = `
-            <div class="card-content">
-                <span class="date-tag">${item.date}</span>
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
-                <div class="publication-info">
-                    <p><i class="${item.icon}"></i> ${item.venue}</p>
-                    <a href="${item.link}" target="_blank" class="cite-link">
-                        <i class="${item.linkIcon}"></i> ${item.linkLabel}
+            <div class="specimen-badge-row">
+                <span class="specimen-badge">Published</span>
+                <span class="specimen-date">${item.date}</span>
+            </div>
+            <div class="specimen-content">
+                <div class="specimen-title">
+                    <i class="${item.icon}"></i>
+                    <h3>${item.title}</h3>
+                </div>
+                <p class="specimen-description">${item.description}</p>
+                <div class="specimen-tags">
+                    ${item.tags.map(tag => `<span class="specimen-tag">${tag}</span>`).join('')}
+                </div>
+                <div class="specimen-actions">
+                    <a href="${item.link}" target="_blank" class="specimen-btn specimen-btn-primary">
+                        <i class="fa-solid fa-link"></i> ${item.linkLabel}
                     </a>
                 </div>
             </div>
@@ -198,9 +276,6 @@ function initResearch() {
     });
 }
 
-/**
- * Bioluminescent Background Animation
- */
 function initBackgroundAnimation() {
     const container = document.getElementById('bg-animation-container');
     if (!container) return;
@@ -227,9 +302,8 @@ function initBackgroundAnimation() {
         container.appendChild(spore);
     }
 
-    // Mouse Interaction
     let lastMoveTime = 0;
-    const throttleDelay = 50; // ms
+    const throttleDelay = 50; 
 
     window.addEventListener('mousemove', (e) => {
         const currentTime = Date.now();
@@ -239,7 +313,7 @@ function initBackgroundAnimation() {
         const mouseSpore = document.createElement('div');
         mouseSpore.className = 'mouse-spore';
 
-        const size = Math.random() * 3 + 2; // 2px to 5px
+        const size = Math.random() * 3 + 2; 
         mouseSpore.style.width = `${size}px`;
         mouseSpore.style.height = `${size}px`;
         mouseSpore.style.left = `${e.clientX}px`;
@@ -247,18 +321,54 @@ function initBackgroundAnimation() {
 
         container.appendChild(mouseSpore);
 
-        // Remove from DOM after animation finishes (2 seconds)
         setTimeout(() => {
             mouseSpore.remove();
         }, 2000);
     });
 }
 
-// Initialize everything once DOM is ready
+function initHeaderScroll() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    
+    const toggleHeader = () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    };
+    
+    window.addEventListener('scroll', toggleHeader);
+    toggleHeader(); 
+}
+
+function initRevealOnScroll() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('reveal-on-scroll');
+        observer.observe(section);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     type();
     initSkillPlant();
     initProjects();
     initResearch();
     initBackgroundAnimation();
+    initHeaderScroll();
+    initRevealOnScroll();
 });

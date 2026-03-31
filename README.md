@@ -3,9 +3,9 @@
 A clean, responsive personal portfolio website built using core web technologies to showcase my projects and skills.
 
 ## 🚀 Features
-- **Responsive Design:** Optimized for mobile, tablet, and desktop screens.
+- **Responsive Design:** Optimized for mobile, tablet and desktop screens.
 - **Interactive UI:** Modern layout with smooth navigation and transitions.
-- **Optimized Performance:** Built with lightweight vanilla HTML, CSS, and JS for fast loading.
+- **Optimized Performance:** Built with lightweight vanilla HTML, CSS and JS for fast loading.
 
 ## 🛠️ Built With
 - **HTML5:** Modern semantic structure.
