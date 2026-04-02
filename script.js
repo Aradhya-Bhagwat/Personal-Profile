@@ -77,14 +77,6 @@ const skillsData = [
         delay: "0.5s"
     },
     {
-        name: "JavaScript",
-        icon: "fa-brands fa-js",
-        desc: "I use JavaScript to bring interfaces to life with interactivity, dynamic content and expressive front-end behavior.",
-        position: { x: "85%", y: "45%" },
-        stemAngle: "25deg",
-        delay: "0.6s"
-    },
-    {
         name: "UI Design",
         icon: "fa-solid fa-wand-magic-sparkles",
         desc: "I enjoy shaping interfaces that feel intuitive, lively and grounded in a strong visual identity.",
@@ -161,19 +153,6 @@ const projectsData = [
         tags: ["Swift StoryBoard", "Supabase", "SwiftData", "Machine Learning"],
         highlights: ["Bird ID workflow", "Migration prediction", "Secure auth"],
         link: "https://github.com/Aradhya-Bhagwat/MITWPU-Group20-SkyTrails.git"
-    },
-    {
-        title: "NewsNexus",
-        eyebrow: "Native App Concept",
-        description: "A native news application focused on secure API key storage and real-time requirement engineering.",
-        image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000&auto=format&fit=crop",
-        icon: "fa-solid fa-newspaper",
-        accent: "accent-news",
-        status: "Prototype",
-        year: "2025",
-        tags: ["Swift", "REST API"],
-        highlights: ["Fast article feed", "Secure keys", "Native reading flow"],
-        link: "#"
     }
 ];
 
@@ -237,7 +216,7 @@ const researchData = [
         venue: "ICAAICS 2024 (Pune)",
         icon: "fa-solid fa-microphone-lines",
         image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop",
-        link: "#",
+        link: "https://drive.google.com/file/d/1aCPhbEa8J0xbAX4fcRLLh-1DV4C3gj0q/view?usp=sharing",
         linkLabel: "Certificate",
         tags: ["AgriTech", "Data Science", "Sensors"]
     }
