@@ -734,23 +734,101 @@ footer {
     0%, 100% { opacity: 0.4; transform: scale(0.95); }
     50% { opacity: 0.8; transform: scale(1.05); }
 }
+#mobile-menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 12px;
+}
+nav {
+    position: relative;
+}
+nav .menu-close {
+    display: none;
+}
 @media (max-width: 768px) {
-    header { padding: 20px 5%; }
-    nav ul { display: none; } 
-    #hero { flex-direction: column-reverse; text-align: center; padding-top: 120px; }
-    .hero-socials { justify-content: center; }
-    .hero-description { margin: 0 auto; }
+    header { padding: 18px 5%; }
+    #mobile-menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    nav {
+        position: fixed;
+        inset: 0;
+        background: rgba(11, 13, 11, 0.95);
+        z-index: 1500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    nav.active {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        text-align: center;
+    }
+    nav ul li a {
+        font-size: 1.1rem;
+        padding: 12px 20px;
+    }
+    nav .menu-close {
+        display: inline-flex;
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        border: none;
+        background: transparent;
+        color: #fff;
+        font-size: 1.4rem;
+        cursor: pointer;
+    }
+    #hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+    .hero-socials {
+        justify-content: center;
+    }
+    .hero-description {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    .hero-image-container {
+        width: min(280px, 72vw);
+        height: min(280px, 72vw);
+        margin: 0 auto;
+    }
     .skill-plant-container {
-        height: 660px;
-        padding-top: 0;
+        height: 620px;
+        padding-bottom: 35px;
     }
     .tree-canvas {
-        transform: scale(0.76);
+        transform: scale(0.72);
         transform-origin: center top;
     }
     .skill-card-overlay {
-        width: min(320px, calc(100% - 24px));
-        padding: 24px 22px 20px;
+        position: fixed;
+        bottom: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(360px, calc(100% - 32px));
+        padding: 22px;
+        z-index: 1600;
     }
     .card-image {
         height: 180px;
@@ -767,4 +845,18 @@ footer {
     .card-links {
         flex-direction: column;
     }
+    section {
+        padding: 80px 5%;
+    }
+    .contact-subtitle {
+        margin-bottom: 40px;
+    }
+    .envelope-wrapper {
+        width: min(280px, 90vw);
+        height: 180px;
+    }
+    footer {
+        padding: 40px 5%;
+    }
 }
+

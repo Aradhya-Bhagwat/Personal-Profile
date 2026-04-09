@@ -322,6 +322,24 @@ function initHeaderScroll() {
     toggleHeader(); 
 }
 
+function initMobileMenu() {
+    const nav = document.querySelector('nav');
+    const openBtn = document.getElementById('mobile-menu-toggle');
+    const closeBtn = document.getElementById('mobile-menu-close');
+    if (!nav || !openBtn || !closeBtn) return;
+
+    const toggleMenu = (open) => {
+        nav.classList.toggle('active', open);
+        openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
+    openBtn.addEventListener('click', () => toggleMenu(true));
+    closeBtn.addEventListener('click', () => toggleMenu(false));
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
+    });
+}
+
 function initRevealOnScroll() {
     const observerOptions = {
         threshold: 0.1,
@@ -349,5 +367,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initResearch();
     initBackgroundAnimation();
     initHeaderScroll();
+    initMobileMenu();
     initRevealOnScroll();
 });
