@@ -138,9 +138,74 @@ function initSkillPlant() {
             overlay.classList.remove('active');
         }
     });
+
+    drawBranches();
+    window.addEventListener('resize', () => {
+        requestAnimationFrame(drawBranches);
+    });
+}
+
+function drawBranches() {
+    const svg = document.getElementById('tree-branches');
+    const canvas = document.querySelector('.tree-canvas');
+    if (!svg || !canvas) return;
+
+    svg.innerHTML = ''; 
+
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+
+    const trunkX = width / 2;
+    const trunkY = height * 0.9; 
+
+    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    defs.innerHTML = `
+        <linearGradient id="branch-gradient" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#1a2e1a" stop-opacity="0.8" />
+            <stop offset="100%" stop-color="rgba(74, 222, 128, 0.5)" />
+        </linearGradient>
+    `;
+    svg.appendChild(defs);
+
+    skillsData.forEach(skill => {
+        const xPercent = parseFloat(skill.position.x) / 100;
+        const yPercent = parseFloat(skill.position.y) / 100;
+        
+        const fruitCenterX = (width * xPercent) + 42.5;
+        const fruitCenterY = (height * yPercent) + 42.5;
+
+        const cp1X = trunkX;
+        const cp1Y = trunkY - (trunkY - fruitCenterY) * 0.6;
+        const cp2X = fruitCenterX - (fruitCenterX - trunkX) * 0.2;
+        const cp2Y = fruitCenterY + (trunkY - fruitCenterY) * 0.4;
+
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        const d = `M ${trunkX} ${trunkY} C ${cp1X} ${cp1Y}, ${cp2X} ${cp2Y}, ${fruitCenterX} ${fruitCenterY}`;
+        
+        path.setAttribute('d', d);
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke', 'url(#branch-gradient)');
+        path.setAttribute('stroke-width', '3');
+        path.setAttribute('class', 'tree-branch-path');
+        
+        svg.appendChild(path);
+    });
 }
 
 const projectsData = [
+    {
+        title: "Loan Management System",
+        eyebrow: "Fintech iOS Ecosystem",
+        description: "A full-stack fintech solution consisting of two native iOS applications (Udhar De & Udhar Le) for intelligent risk assessment and automated KYC.",
+        image: "Assets/LMS.png",
+        icon: "fa-solid fa-money-check-dollar",
+        accent: "accent-emerald",
+        status: "Internship Build",
+        year: "2024",
+        tags: ["SwiftUI", "Supabase", "VisionKit OCR", "AHP Engine"],
+        highlights: ["Intelligent Risk Assessment", "Automated KYC", "Two App Ecosystem"],
+        link: "https://github.com/Aradhya-Bhagwat/Loan-Management-System.git"
+    },
     {
         title: "SkyTrails",
         eyebrow: "Featured iOS Product",
@@ -360,6 +425,17 @@ function initRevealOnScroll() {
     });
 }
 
+function initEnvelope() {
+    const wrapper = document.querySelector('.envelope-wrapper');
+    if (!wrapper) return;
+    
+    wrapper.addEventListener('click', (e) => {
+        if (!e.target.closest('.contact-link')) {
+            wrapper.classList.toggle('active');
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     type();
     initSkillPlant();
@@ -369,4 +445,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initMobileMenu();
     initRevealOnScroll();
+    initEnvelope();
 });
+
