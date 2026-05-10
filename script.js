@@ -197,7 +197,7 @@ const projectsData = [
         title: "Loan Management System",
         eyebrow: "Fintech iOS Ecosystem",
         description: "A full-stack fintech solution consisting of two native iOS applications (Udhar De & Udhar Le) for intelligent risk assessment and automated KYC.",
-        image: "Assets/LMS.png",
+        image: "Assets/LMS.jpg",
         icon: "fa-solid fa-money-check-dollar",
         accent: "accent-emerald",
         status: "Internship Build",
