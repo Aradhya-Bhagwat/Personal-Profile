@@ -12,7 +12,7 @@ let typeSpeed = 150;
 
 function type() {
     const currentPhrase = phrases[phraseIndex];
-    
+
     if (isDeleting) {
         textElement.textContent = currentPhrase.substring(0, characterIndex - 1);
         characterIndex--;
@@ -25,7 +25,7 @@ function type() {
 
     if (!isDeleting && characterIndex === currentPhrase.length) {
         isDeleting = true;
-        typeSpeed = 2000; 
+        typeSpeed = 2000;
     } else if (isDeleting && characterIndex === 0) {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
@@ -98,7 +98,7 @@ function initSkillPlant() {
     const container = document.getElementById('skills-fruits-container');
     const overlay = document.getElementById('skill-description-card');
     const closeBtn = document.getElementById('close-skill-card');
-    
+
     const iconDisplay = document.getElementById('skill-icon-display');
     const nameDisplay = document.getElementById('skill-name-display');
     const descDisplay = document.getElementById('skill-desc-display');
@@ -113,7 +113,7 @@ function initSkillPlant() {
         fruit.style.setProperty('--y', skill.position.y);
         fruit.style.setProperty('--delay', skill.delay);
         fruit.style.setProperty('--stem-angle', skill.stemAngle);
-        
+
         fruit.innerHTML = `
             <i class="${skill.icon}"></i>
             <span class="label">${skill.name}</span>
@@ -150,13 +150,13 @@ function drawBranches() {
     const canvas = document.querySelector('.tree-canvas');
     if (!svg || !canvas) return;
 
-    svg.innerHTML = ''; 
+    svg.innerHTML = '';
 
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;
 
     const trunkX = width / 2;
-    const trunkY = height * 0.9; 
+    const trunkY = height * 0.9;
 
     const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
     defs.innerHTML = `
@@ -170,7 +170,7 @@ function drawBranches() {
     skillsData.forEach(skill => {
         const xPercent = parseFloat(skill.position.x) / 100;
         const yPercent = parseFloat(skill.position.y) / 100;
-        
+
         const fruitCenterX = (width * xPercent) + 42.5;
         const fruitCenterY = (height * yPercent) + 42.5;
 
@@ -181,18 +181,31 @@ function drawBranches() {
 
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         const d = `M ${trunkX} ${trunkY} C ${cp1X} ${cp1Y}, ${cp2X} ${cp2Y}, ${fruitCenterX} ${fruitCenterY}`;
-        
+
         path.setAttribute('d', d);
         path.setAttribute('fill', 'none');
         path.setAttribute('stroke', 'url(#branch-gradient)');
         path.setAttribute('stroke-width', '3');
         path.setAttribute('class', 'tree-branch-path');
-        
+
         svg.appendChild(path);
     });
 }
 
 const projectsData = [
+    {
+        title: "GreenAura",
+        eyebrow: "Swift Student Challenge",
+        description: "An immersive wellness app blending ancient breathing practices with modern design. Features a living dashboard and dynamic aura visualization to find your flow in nature's rhythm.",
+        image: "Assets/GreenAura.png",
+        icon: "fa-solid fa-leaf",
+        accent: "accent-green",
+        status: "Contest Build",
+        year: "2024",
+        tags: ["SwiftUI", "Swift 6", "AVFoundation", "Animations"],
+        highlights: ["Bio-Dialogue", "Immersive Audio", "Aura Resonance"],
+        link: "https://github.com/Aradhya-Bhagwat/GreenAura.git"
+    },
     {
         title: "Loan Management System",
         eyebrow: "Fintech iOS Ecosystem",
@@ -228,7 +241,7 @@ function initProjects() {
     projectsData.forEach(project => {
         const card = document.createElement('div');
         card.className = `specimen-card ${project.accent}`;
-        
+
         card.innerHTML = `
             <div class="specimen-image">
                 <img src="${project.image}" alt="${project.title} Specimen">
@@ -294,7 +307,7 @@ function initResearch() {
     researchData.forEach(item => {
         const card = document.createElement('div');
         card.className = 'specimen-card research-specimen';
-        
+
         card.innerHTML = `
             <div class="specimen-badge-row">
                 <span class="specimen-badge">Published</span>
@@ -329,7 +342,7 @@ function initBackgroundAnimation() {
     for (let i = 0; i < sporeCount; i++) {
         const spore = document.createElement('div');
         spore.className = 'spore';
-        
+
         const size = Math.random() * 4 + 2;
         const left = Math.random() * 100;
         const duration = Math.random() * 15 + 15;
@@ -347,7 +360,7 @@ function initBackgroundAnimation() {
     }
 
     let lastMoveTime = 0;
-    const throttleDelay = 50; 
+    const throttleDelay = 50;
 
     window.addEventListener('mousemove', (e) => {
         const currentTime = Date.now();
@@ -357,7 +370,7 @@ function initBackgroundAnimation() {
         const mouseSpore = document.createElement('div');
         mouseSpore.className = 'mouse-spore';
 
-        const size = Math.random() * 3 + 2; 
+        const size = Math.random() * 3 + 2;
         mouseSpore.style.width = `${size}px`;
         mouseSpore.style.height = `${size}px`;
         mouseSpore.style.left = `${e.clientX}px`;
@@ -374,7 +387,7 @@ function initBackgroundAnimation() {
 function initHeaderScroll() {
     const header = document.querySelector('header');
     if (!header) return;
-    
+
     const toggleHeader = () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -382,9 +395,9 @@ function initHeaderScroll() {
             header.classList.remove('scrolled');
         }
     };
-    
+
     window.addEventListener('scroll', toggleHeader);
-    toggleHeader(); 
+    toggleHeader();
 }
 
 function initMobileMenu() {
@@ -428,7 +441,7 @@ function initRevealOnScroll() {
 function initEnvelope() {
     const wrapper = document.querySelector('.envelope-wrapper');
     if (!wrapper) return;
-    
+
     wrapper.addEventListener('click', (e) => {
         if (!e.target.closest('.contact-link')) {
             wrapper.classList.toggle('active');
