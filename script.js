@@ -194,32 +194,6 @@ function drawBranches() {
 
 const projectsData = [
     {
-        title: "GreenAura",
-        eyebrow: "Swift Student Challenge",
-        description: "An immersive wellness app blending ancient breathing practices with modern design. Features a living dashboard and dynamic aura visualization to find your flow in nature's rhythm.",
-        image: "Assets/GreenAura.png",
-        icon: "fa-solid fa-leaf",
-        accent: "accent-green",
-        status: "Contest Build",
-        year: "2024",
-        tags: ["SwiftUI", "Swift 6", "AVFoundation", "Animations"],
-        highlights: ["Bio-Dialogue", "Immersive Audio", "Aura Resonance"],
-        link: "https://github.com/Aradhya-Bhagwat/GreenAura.git"
-    },
-    {
-        title: "Loan Management System",
-        eyebrow: "Fintech iOS Ecosystem",
-        description: "A full-stack fintech solution consisting of two native iOS applications (Udhar De & Udhar Le) for intelligent risk assessment and automated KYC.",
-        image: "Assets/LMS.jpg",
-        icon: "fa-solid fa-money-check-dollar",
-        accent: "accent-emerald",
-        status: "Internship Build",
-        year: "2024",
-        tags: ["SwiftUI", "Supabase", "VisionKit OCR", "AHP Engine"],
-        highlights: ["Intelligent Risk Assessment", "Automated KYC", "Two App Ecosystem"],
-        link: "https://github.com/Aradhya-Bhagwat/Loan-Management-System.git"
-    },
-    {
         title: "SkyTrails",
         eyebrow: "Featured iOS Product",
         description: "Smart Bird Identification and Migration Prediction iOS app using BirdFlow ML, SwiftData for local storage and Supabase for secure authentication.",
@@ -231,6 +205,45 @@ const projectsData = [
         tags: ["Swift StoryBoard", "Supabase", "SwiftData", "Machine Learning"],
         highlights: ["Bird ID workflow", "Migration prediction", "Secure auth"],
         link: "https://github.com/Aradhya-Bhagwat/MITWPU-Group20-SkyTrails.git"
+    },
+    {
+        title: "Loan Management System",
+        eyebrow: "Fintech iOS Ecosystem",
+        description: "A full-stack fintech solution consisting of two native iOS applications (Udhar De & Udhar Le) for intelligent risk assessment and automated KYC.",
+        image: "Assets/LMS.jpg",
+        icon: "fa-solid fa-money-check-dollar",
+        accent: "accent-emerald",
+        status: "Internship Build",
+        year: "2026",
+        tags: ["SwiftUI", "Supabase", "VisionKit OCR", "AHP Engine"],
+        highlights: ["Intelligent Risk Assessment", "Automated KYC", "Two App Ecosystem"],
+        link: "https://github.com/Aradhya-Bhagwat/Loan-Management-System.git"
+    },
+    {
+        title: "GreenAura",
+        eyebrow: "Swift Student Challenge",
+        description: "An immersive wellness app blending ancient breathing practices with modern design. Features a living dashboard and dynamic aura visualization to find your flow in nature's rhythm.",
+        image: "Assets/GreenAura.png",
+        icon: "fa-solid fa-leaf",
+        accent: "accent-green",
+        status: "Contest Build",
+        year: "2026",
+        tags: ["SwiftUI", "Swift 6", "AVFoundation", "Animations"],
+        highlights: ["Bio-Dialogue", "Immersive Audio", "Aura Resonance"],
+        link: "https://github.com/Aradhya-Bhagwat/GreenAura.git"
+    },
+    {
+        title: "Banking System",
+        eyebrow: "The Beginning",
+        description: "An initial project demonstrating Object-Oriented Programming (OOP) concepts in C++. This terminal-based application highlights my early foundations in software development.",
+        image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=1000&auto=format&fit=crop",
+        icon: "fa-solid fa-building-columns",
+        accent: "accent-slate",
+        status: "Archived",
+        year: "2022",
+        tags: ["C++", "OOP", "CLI", "File I/O"],
+        highlights: ["Polymorphism", "Dynamic Allocation", "Persistent Storage"],
+        link: "https://github.com/Aradhya-Bhagwat/Banking-System-in-C.git"
     }
 ];
 
