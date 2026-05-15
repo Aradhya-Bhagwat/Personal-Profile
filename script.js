@@ -236,7 +236,7 @@ const projectsData = [
         title: "Banking System",
         eyebrow: "The Beginning",
         description: "An initial project demonstrating Object-Oriented Programming (OOP) concepts in C++. This terminal-based application highlights my early foundations in software development.",
-        image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=1000&auto=format&fit=crop",
+        image: "Assets/Cpp.png",
         icon: "fa-solid fa-building-columns",
         accent: "accent-slate",
         status: "Archived",
