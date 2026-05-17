@@ -37,57 +37,57 @@ function type() {
 
 const skillsData = [
     {
-        name: "HTML5",
-        icon: "fa-brands fa-html5",
-        desc: "The semantic backbone of the web. I use HTML to build clear, accessible and well-structured interfaces.",
+        name: "Agile Workflow",
+        icon: "fa-solid fa-users-gear",
+        desc: "Experienced in cross-functional team collaboration, Scrum practices, and managing structured workflows for timely delivery.",
         position: { x: "15%", y: "45%" },
         stemAngle: "-25deg",
         delay: "0.1s"
     },
     {
-        name: "CSS3",
-        icon: "fa-brands fa-css3-alt",
-        desc: "I shape polished layouts, responsive systems and visual detail with modern CSS, animation, Grid and Flexbox.",
+        name: "IoT & Sensors",
+        icon: "fa-solid fa-microchip",
+        desc: "Researching and developing smart sensor networks for environmental monitoring, agriculture, and sustainable data-driven solutions.",
         position: { x: "28%", y: "22%" },
         stemAngle: "-15deg",
         delay: "0.2s"
     },
     {
-        name: "Swift",
+        name: "Swift Ecosystem",
         icon: "fa-brands fa-swift",
-        desc: "My core language for iOS work, helping me build fast, expressive and reliable native experiences.",
+        desc: "My core environment for building fluid, native Apple-platform experiences with SwiftData, AVFoundation, and declarative UI.",
         position: { x: "44%", y: "12%" },
         stemAngle: "-5deg",
         delay: "0.3s"
     },
     {
-        name: "SwiftUI",
-        icon: "fa-solid fa-mobile-screen",
-        desc: "I use SwiftUI to compose fluid Apple-platform interfaces with reusable views and a clean declarative approach.",
+        name: "Supabase",
+        icon: "fa-solid fa-database",
+        desc: "My go-to backend-as-a-service for secure authentication, real-time databases, and seamless integration with applications.",
         position: { x: "58%", y: "12%" },
         stemAngle: "5deg",
         delay: "0.4s"
     },
     {
-        name: "Git",
-        icon: "fa-brands fa-github",
-        desc: "Version control keeps my work collaborative and intentional, from clean commits to safer iteration.",
+        name: "Machine Learning",
+        icon: "fa-solid fa-brain",
+        desc: "Integrating predictive models and intelligent algorithms, from bird migration tracking to complex risk assessment engines.",
         position: { x: "74%", y: "22%" },
         stemAngle: "15deg",
         delay: "0.5s"
     },
     {
-        name: "UI Design",
+        name: "UI/UX Design",
         icon: "fa-solid fa-wand-magic-sparkles",
-        desc: "I enjoy shaping interfaces that feel intuitive, lively and grounded in a strong visual identity.",
+        desc: "Designing immersive, nature-inspired digital interfaces that balance beautiful aesthetics with intuitive user experiences.",
         position: { x: "32%", y: "55%" },
         stemAngle: "-10deg",
         delay: "0.7s"
     },
     {
-        name: "Problem Solving",
-        icon: "fa-solid fa-lightbulb",
-        desc: "From debugging to architecture decisions, I like breaking hard problems into clear, practical steps.",
+        name: "C++ & OOP",
+        icon: "fa-solid fa-code",
+        desc: "Strong foundational knowledge in Object-Oriented Programming, dynamic memory allocation, and core software design principles.",
         position: { x: "68%", y: "55%" },
         stemAngle: "10deg",
         delay: "0.8s"
@@ -189,6 +189,70 @@ function drawBranches() {
         path.setAttribute('class', 'tree-branch-path');
 
         svg.appendChild(path);
+    });
+}
+
+const experienceData = [
+    {
+        role: "iOS Application Development Intern",
+        type: "Internship",
+        company: "Infosys",
+        duration: "Apr 2026 - May 2026",
+        location: "On-site • Mysore",
+        description: [
+            "Collaborated within a 10-member cross-functional team to implement Agile Scrum practices in a structured project environment.",
+            "Enhanced Agile workflows by participating in sprint planning, daily stand-ups, and reviews, leading to improved team coordination and timely task completion.",
+            "Completed intensive leadership training sessions, including Accentuating Business Communication, Presentation Powerhouse, Communication Catalyst, Stakeholder Synergy, and Client Value Accelerator, which enhanced client-facing and presentation skills.",
+            "Increased team productivity and communication efficiency through active discussions, delivering presentations, and aligning with team goals in a fast-paced environment."
+        ],
+        technologies: ["SwiftUI", "Supabase", "Jira"],
+        icon: "fa-brands fa-apple"
+    },
+    {
+        role: "Courses Facilitator Intern",
+        type: "Internship",
+        company: "MyCaptain",
+        duration: "Jun 2025 - Aug 2025",
+        location: "Remote",
+        description: [
+            "Mentored 200+ students through structured sessions and collaborative activities, enhancing engagement and knowledge sharing in coordination with the team captain and core coordinators.",
+            "Developed leadership, communication, and management skills by hosting sessions, managing participant data in Excel, coordinating via Zoom, and creating impactful presentations using Canva."
+        ],
+        technologies: ["Microsoft Excel", "Zoom", "Canva"],
+        icon: "fa-solid fa-person-chalkboard"
+    }
+];
+
+function initExperience() {
+    const container = document.getElementById('experience-container');
+    if (!container) return;
+
+    experienceData.forEach(exp => {
+        const card = document.createElement('div');
+        card.className = 'specimen-card experience-specimen';
+
+        let descHTML = exp.description.map(point => `<li>${point}</li>`).join('');
+
+        card.innerHTML = `
+            <div class="specimen-badge-row">
+                <span class="specimen-badge">${exp.type}</span>
+                <span class="specimen-date">${exp.duration}</span>
+            </div>
+            <div class="specimen-content">
+                <div class="specimen-title">
+                    <i class="${exp.icon}"></i>
+                    <h3>${exp.role}</h3>
+                </div>
+                <h4 class="company-name">${exp.company} <span class="location-text">| ${exp.location}</span></h4>
+                <ul class="experience-list">
+                    ${descHTML}
+                </ul>
+                <div class="specimen-tags">
+                    ${exp.technologies.map(tag => `<span class="specimen-tag">${tag}</span>`).join('')}
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
     });
 }
 
@@ -465,6 +529,7 @@ function initEnvelope() {
 document.addEventListener('DOMContentLoaded', () => {
     type();
     initSkillPlant();
+    initExperience();
     initProjects();
     initResearch();
     initBackgroundAnimation();

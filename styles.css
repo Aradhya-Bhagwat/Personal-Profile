@@ -524,6 +524,42 @@ section {
     line-height: 1.6;
     margin-bottom: 20px;
 }
+.company-name {
+    font-size: 1.1rem;
+    color: var(--accent-green);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.location-text {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+}
+.experience-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 25px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+.experience-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+.experience-list li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+    font-size: 1.2rem;
+    line-height: 1;
+    top: 2px;
+}
+.experience-specimen {
+    grid-column: 1 / -1;
+}
 .specimen-tags {
     display: flex;
     flex-wrap: wrap;
