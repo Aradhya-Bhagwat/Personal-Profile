@@ -1,3 +1,21 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBrdd5LfaOFstE8tFLFCcZFoR_dHzt7t2Q",
+    authDomain: "personal-portfolio-ac398.firebaseapp.com",
+    projectId: "personal-portfolio-ac398",
+    storageBucket: "personal-portfolio-ac398.firebasestorage.app",
+    messagingSenderId: "1012313656628",
+    appId: "1:1012313656628:web:fbb1a0097ca868bf072961",
+    measurementId: "G-1B2MEKLKN0"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getFirestore(app);
+
 const textElement = document.getElementById('typing-text');
 const phrases = [
     "Software Engineer.",
@@ -192,222 +210,151 @@ function drawBranches() {
     });
 }
 
-const experienceData = [
-    {
-        role: "iOS Application Development Intern",
-        type: "Internship",
-        company: "Infosys",
-        duration: "Apr 2026 - May 2026",
-        location: "On-site • Mysore",
-        description: [
-            "Collaborated within a 10-member cross-functional team to implement Agile Scrum practices in a structured project environment.",
-            "Enhanced Agile workflows by participating in sprint planning, daily stand-ups, and reviews, leading to improved team coordination and timely task completion.",
-            "Completed intensive leadership training sessions, including Accentuating Business Communication, Presentation Powerhouse, Communication Catalyst, Stakeholder Synergy, and Client Value Accelerator, which enhanced client-facing and presentation skills.",
-            "Increased team productivity and communication efficiency through active discussions, delivering presentations, and aligning with team goals in a fast-paced environment."
-        ],
-        technologies: ["SwiftUI", "Supabase", "Jira"],
-        icon: "fa-brands fa-apple"
-    },
-    {
-        role: "Courses Facilitator Intern",
-        type: "Internship",
-        company: "MyCaptain",
-        duration: "Jun 2025 - Aug 2025",
-        location: "Remote",
-        description: [
-            "Mentored 200+ students through structured sessions and collaborative activities, enhancing engagement and knowledge sharing in coordination with the team captain and core coordinators.",
-            "Developed leadership, communication, and management skills by hosting sessions, managing participant data in Excel, coordinating via Zoom, and creating impactful presentations using Canva."
-        ],
-        technologies: ["Microsoft Excel", "Zoom", "Canva"],
-        icon: "fa-solid fa-person-chalkboard"
-    }
-];
-
-function initExperience() {
+async function initExperience() {
     const container = document.getElementById('experience-container');
     if (!container) return;
 
-    experienceData.forEach(exp => {
-        const card = document.createElement('div');
-        card.className = 'specimen-card experience-specimen';
+    try {
+        const querySnapshot = await getDocs(collection(db, "experience"));
+        let fetchedData = [];
+        querySnapshot.forEach((doc) => {
+            fetchedData.push(doc.data());
+        });
+        
+        fetchedData.sort((a, b) => a.order - b.order);
 
-        let descHTML = exp.description.map(point => `<li>${point}</li>`).join('');
+        container.innerHTML = ''; // Clear container
 
-        card.innerHTML = `
-            <div class="specimen-badge-row">
-                <span class="specimen-badge">${exp.type}</span>
-                <span class="specimen-date">${exp.duration}</span>
-            </div>
-            <div class="specimen-content">
-                <div class="specimen-title">
-                    <i class="${exp.icon}"></i>
-                    <h3>${exp.role}</h3>
+        fetchedData.forEach(exp => {
+            const card = document.createElement('div');
+            card.className = 'specimen-card experience-specimen';
+
+            let descHTML = exp.description.map(point => `<li>${point}</li>`).join('');
+
+            card.innerHTML = `
+                <div class="specimen-badge-row">
+                    <span class="specimen-badge">${exp.type}</span>
+                    <span class="specimen-date">${exp.duration}</span>
                 </div>
-                <h4 class="company-name">${exp.company} <span class="location-text">| ${exp.location}</span></h4>
-                <ul class="experience-list">
-                    ${descHTML}
-                </ul>
-                <div class="specimen-tags">
-                    ${exp.technologies.map(tag => `<span class="specimen-tag">${tag}</span>`).join('')}
+                <div class="specimen-content">
+                    <div class="specimen-title">
+                        <i class="${exp.icon}"></i>
+                        <h3>${exp.role}</h3>
+                    </div>
+                    <h4 class="company-name">${exp.company} <span class="location-text">| ${exp.location}</span></h4>
+                    <ul class="experience-list">
+                        ${descHTML}
+                    </ul>
+                    <div class="specimen-tags">
+                        ${exp.technologies.map(tag => `<span class="specimen-tag">${tag}</span>`).join('')}
+                    </div>
                 </div>
-            </div>
-        `;
-        container.appendChild(card);
-    });
+            `;
+            container.appendChild(card);
+        });
+    } catch (e) {
+        console.error("Error fetching experience data:", e);
+    }
 }
 
-const projectsData = [
-    {
-        title: "SkyTrails",
-        eyebrow: "Featured iOS Product",
-        description: "Smart Bird Identification and Migration Prediction iOS app using BirdFlow ML, SwiftData for local storage and Supabase for secure authentication.",
-        image: "Assets/SkyTrails.png",
-        icon: "fa-solid fa-crow",
-        accent: "accent-sky",
-        status: "Live Build",
-        year: "2026",
-        tags: ["Swift StoryBoard", "Supabase", "SwiftData", "Machine Learning"],
-        highlights: ["Bird ID workflow", "Migration prediction", "Secure auth"],
-        link: "https://github.com/Aradhya-Bhagwat/MITWPU-Group20-SkyTrails.git"
-    },
-    {
-        title: "Loan Management System",
-        eyebrow: "Fintech iOS Ecosystem",
-        description: "A full-stack fintech solution consisting of two native iOS applications (Udhar De & Udhar Le) for intelligent risk assessment and automated KYC.",
-        image: "Assets/LMS.jpg",
-        icon: "fa-solid fa-money-check-dollar",
-        accent: "accent-emerald",
-        status: "Internship Build",
-        year: "2026",
-        tags: ["SwiftUI", "Supabase", "VisionKit OCR", "AHP Engine"],
-        highlights: ["Intelligent Risk Assessment", "Automated KYC", "Two App Ecosystem"],
-        link: "https://github.com/Aradhya-Bhagwat/Loan-Management-System.git"
-    },
-    {
-        title: "GreenAura",
-        eyebrow: "Swift Student Challenge",
-        description: "An immersive wellness app blending ancient breathing practices with modern design. Features a living dashboard and dynamic aura visualization to find your flow in nature's rhythm.",
-        image: "Assets/GreenAura.png",
-        icon: "fa-solid fa-leaf",
-        accent: "accent-green",
-        status: "Contest Build",
-        year: "2026",
-        tags: ["SwiftUI", "Swift 6", "AVFoundation", "Animations"],
-        highlights: ["Bio-Dialogue", "Immersive Audio", "Aura Resonance"],
-        link: "https://github.com/Aradhya-Bhagwat/GreenAura.git"
-    },
-    {
-        title: "Banking System",
-        eyebrow: "The Beginning",
-        description: "An initial project demonstrating Object-Oriented Programming (OOP) concepts in C++. This terminal-based application highlights my early foundations in software development.",
-        image: "Assets/Cpp.png",
-        icon: "fa-solid fa-building-columns",
-        accent: "accent-slate",
-        status: "Archived",
-        year: "2022",
-        tags: ["C++", "OOP", "CLI", "File I/O"],
-        highlights: ["Polymorphism", "Dynamic Allocation", "Persistent Storage"],
-        link: "https://github.com/Aradhya-Bhagwat/Banking-System-in-C.git"
-    }
-];
-
-function initProjects() {
+async function initProjects() {
     const container = document.getElementById('projects-container');
     if (!container) return;
 
-    projectsData.forEach(project => {
-        const card = document.createElement('div');
-        card.className = `specimen-card ${project.accent}`;
+    try {
+        const querySnapshot = await getDocs(collection(db, "projects"));
+        let fetchedData = [];
+        querySnapshot.forEach((doc) => {
+            fetchedData.push(doc.data());
+        });
+        
+        fetchedData.sort((a, b) => a.order - b.order);
 
-        card.innerHTML = `
-            <div class="specimen-image">
-                <img src="${project.image}" alt="${project.title} Specimen">
-            </div>
-            <div class="specimen-badge-row">
-                <span class="specimen-badge">${project.status}</span>
-                <span class="specimen-date">${project.year}</span>
-            </div>
-            <div class="specimen-content">
-                <div class="specimen-title">
-                    <i class="${project.icon}"></i>
-                    <h3>${project.title}</h3>
+        container.innerHTML = '';
+
+        fetchedData.forEach(project => {
+            const card = document.createElement('div');
+            card.className = `specimen-card ${project.accent}`;
+
+            card.innerHTML = `
+                <div class="specimen-image">
+                    <img src="${project.image}" alt="${project.title} Specimen">
                 </div>
-                <p class="specimen-description">${project.description}</p>
-                <div class="specimen-tags">
-                    ${project.tags.map(tag => `<span class="specimen-tag">${tag}</span>`).join('')}
+                <div class="specimen-badge-row">
+                    <span class="specimen-badge">${project.status}</span>
+                    <span class="specimen-date">${project.year}</span>
                 </div>
-                <div class="specimen-actions">
-                    <a href="${project.link}" target="_blank" class="specimen-btn specimen-btn-primary">
-                        <i class="fa-brands fa-github"></i> View Repo
-                    </a>
-                    <a href="#contact" class="specimen-btn specimen-btn-secondary">
-                        Details <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                <div class="specimen-content">
+                    <div class="specimen-title">
+                        <i class="${project.icon}"></i>
+                        <h3>${project.title}</h3>
+                    </div>
+                    <p class="specimen-description">${project.description}</p>
+                    <div class="specimen-tags">
+                        ${project.tags.map(tag => `<span class="specimen-tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="specimen-actions">
+                        <a href="${project.link}" target="_blank" class="specimen-btn specimen-btn-primary">
+                            <i class="fa-brands fa-github"></i> View Repo
+                        </a>
+                        <a href="#contact" class="specimen-btn specimen-btn-secondary">
+                            Details <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        `;
-        container.appendChild(card);
-    });
+            `;
+            container.appendChild(card);
+        });
+    } catch (e) {
+        console.error("Error fetching projects data:", e);
+    }
 }
 
-const researchData = [
-    {
-        title: "IoT Environmental Monitoring",
-        subtitle: "Climate Change & Sustainable Development",
-        description: "A comprehensive study on leveraging IoT sensors for tracking pollution and climate metrics to drive data-informed sustainable decisions.",
-        date: "Oct 2024",
-        venue: "Routledge Publication",
-        icon: "fa-solid fa-book",
-        image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1000&auto=format&fit=crop",
-        link: "https://www.routledge.com/Smart-IoT-for-Sustainable-Development/Subhedar-Mahalle-Pawar/p/book/9781032887692",
-        linkLabel: "Publication",
-        tags: ["IoT", "Sustainability", "Smart Sensors"]
-    },
-    {
-        title: "7-in-1 Soil IoT Sensor",
-        subtitle: "Enhancing Farming Efficiency",
-        description: "Research on multi-sensor systems designed for real-time soil health monitoring to optimize crop yield and agricultural efficiency.",
-        date: "May 2024",
-        venue: "ICAAICS 2024 (Pune)",
-        icon: "fa-solid fa-microphone-lines",
-        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop",
-        link: "https://drive.google.com/file/d/1aCPhbEa8J0xbAX4fcRLLh-1DV4C3gj0q/view?usp=sharing",
-        linkLabel: "Certificate",
-        tags: ["AgriTech", "Data Science", "Sensors"]
-    }
-];
-
-function initResearch() {
+async function initResearch() {
     const container = document.getElementById('research-container');
     if (!container) return;
 
-    researchData.forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'specimen-card research-specimen';
+    try {
+        const querySnapshot = await getDocs(collection(db, "research"));
+        let fetchedData = [];
+        querySnapshot.forEach((doc) => {
+            fetchedData.push(doc.data());
+        });
+        
+        fetchedData.sort((a, b) => a.order - b.order);
 
-        card.innerHTML = `
-            <div class="specimen-badge-row">
-                <span class="specimen-badge">Published</span>
-                <span class="specimen-date">${item.date}</span>
-            </div>
-            <div class="specimen-content">
-                <div class="specimen-title">
-                    <i class="${item.icon}"></i>
-                    <h3>${item.title}</h3>
+        container.innerHTML = '';
+
+        fetchedData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'specimen-card research-specimen';
+
+            card.innerHTML = `
+                <div class="specimen-badge-row">
+                    <span class="specimen-badge">Published</span>
+                    <span class="specimen-date">${item.date}</span>
                 </div>
-                <p class="specimen-description">${item.description}</p>
-                <div class="specimen-tags">
-                    ${item.tags.map(tag => `<span class="specimen-tag">${tag}</span>`).join('')}
+                <div class="specimen-content">
+                    <div class="specimen-title">
+                        <i class="${item.icon}"></i>
+                        <h3>${item.title}</h3>
+                    </div>
+                    <p class="specimen-description">${item.description}</p>
+                    <div class="specimen-tags">
+                        ${item.tags.map(tag => `<span class="specimen-tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="specimen-actions">
+                        <a href="${item.link}" target="_blank" class="specimen-btn specimen-btn-primary">
+                            <i class="fa-solid fa-link"></i> ${item.linkLabel}
+                        </a>
+                    </div>
                 </div>
-                <div class="specimen-actions">
-                    <a href="${item.link}" target="_blank" class="specimen-btn specimen-btn-primary">
-                        <i class="fa-solid fa-link"></i> ${item.linkLabel}
-                    </a>
-                </div>
-            </div>
-        `;
-        container.appendChild(card);
-    });
+            `;
+            container.appendChild(card);
+        });
+    } catch (e) {
+        console.error("Error fetching research data:", e);
+    }
 }
 
 function initBackgroundAnimation() {
@@ -526,12 +473,14 @@ function initEnvelope() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     type();
     initSkillPlant();
-    initExperience();
-    initProjects();
-    initResearch();
+    
+    await initExperience();
+    await initProjects();
+    await initResearch();
+    
     initBackgroundAnimation();
     initHeaderScroll();
     initMobileMenu();
