@@ -3,7 +3,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBrdd5LfaOFstE8tFLFCcZFoR_dHzt7t2Q",
+    apiKey: "AIzaSyCLVo1s-5QBI9wHe5rm02KODDRO6AuP2iI",
     authDomain: "personal-portfolio-ac398.firebaseapp.com",
     projectId: "personal-portfolio-ac398",
     storageBucket: "personal-portfolio-ac398.firebasestorage.app",
@@ -220,7 +220,7 @@ async function initExperience() {
         querySnapshot.forEach((doc) => {
             fetchedData.push(doc.data());
         });
-        
+
         fetchedData.sort((a, b) => a.order - b.order);
 
         container.innerHTML = ''; // Clear container
@@ -267,7 +267,7 @@ async function initProjects() {
         querySnapshot.forEach((doc) => {
             fetchedData.push(doc.data());
         });
-        
+
         fetchedData.sort((a, b) => a.order - b.order);
 
         container.innerHTML = '';
@@ -320,7 +320,7 @@ async function initResearch() {
         querySnapshot.forEach((doc) => {
             fetchedData.push(doc.data());
         });
-        
+
         fetchedData.sort((a, b) => a.order - b.order);
 
         container.innerHTML = '';
@@ -476,11 +476,11 @@ function initEnvelope() {
 document.addEventListener('DOMContentLoaded', async () => {
     type();
     initSkillPlant();
-    
+
     await initExperience();
     await initProjects();
     await initResearch();
-    
+
     initBackgroundAnimation();
     initHeaderScroll();
     initMobileMenu();
