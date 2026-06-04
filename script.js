@@ -352,6 +352,18 @@ function initProjects() {
 
 const researchData = [
     {
+        badge: "Patent Application",
+        title: "Indian Patent for GUI-based Species Identification",
+        subtitle: "Patent Application",
+        description: "Co-inventor of Indian Patent Application titled \"A System for Species Identification Using a Graphical User Interface\" published by the Indian Patent Office. The system focuses on species identification using GUI-based electronic methodologies.",
+        date: "09 Mar 2026",
+        venue: "Indian Patent Office",
+        icon: "fa-solid fa-lightbulb",
+        link: "https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus",
+        linkLabel: "Patent",
+        tags: ["Species ID", "GUI", "Patent"]
+    },
+    {
         title: "IoT Environmental Monitoring",
         subtitle: "Climate Change & Sustainable Development",
         description: "A comprehensive study on leveraging IoT sensors for tracking pollution and climate metrics to drive data-informed sustainable decisions.",
@@ -385,9 +397,11 @@ function initResearch() {
         const card = document.createElement('div');
         card.className = 'specimen-card research-specimen';
 
+        const badgeText = item.badge || 'Published';
+
         card.innerHTML = `
             <div class="specimen-badge-row">
-                <span class="specimen-badge">Published</span>
+                <span class="specimen-badge">${badgeText}</span>
                 <span class="specimen-date">${item.date}</span>
             </div>
             <div class="specimen-content">
