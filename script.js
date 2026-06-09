@@ -117,6 +117,7 @@ function initSkillPlant() {
         fruit.innerHTML = `
             <i class="${skill.icon}"></i>
             <span class="label">${skill.name}</span>
+            <p class="skill-desc">${skill.desc}</p>
         `;
 
         fruit.addEventListener('click', () => {

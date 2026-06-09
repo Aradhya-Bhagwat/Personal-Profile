@@ -16,6 +16,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
+    overflow-x: hidden;
 }
 body {
     background-color: var(--bg-dark);
@@ -351,6 +352,9 @@ section {
     color: var(--text-light);
     opacity: 0.8;
 }
+.skill-fruit .skill-desc {
+    display: none;
+}
 .skill-fruit:hover {
     transform: scale(1.15) translateY(-10px);
     background: rgba(74, 222, 128, 0.1);
@@ -636,9 +640,12 @@ section {
     margin-top: 20px;
 }
 .envelope-wrapper {
+    --envelope-w: 300px;
+    --envelope-h: 200px;
+    --letter-translate: -120px;
     position: relative;
-    width: 300px;
-    height: 200px;
+    width: var(--envelope-w);
+    height: var(--envelope-h);
     background-color: #1a1c1a;
     border-radius: 0 0 15px 15px;
     cursor: pointer;
@@ -655,9 +662,9 @@ section {
     left: 0;
     width: 0;
     height: 0;
-    border-left: 150px solid transparent;
-    border-right: 150px solid transparent;
-    border-top: 110px solid #2d3b2d;
+    border-left: calc(var(--envelope-w) / 2) solid transparent;
+    border-right: calc(var(--envelope-w) / 2) solid transparent;
+    border-top: calc(var(--envelope-h) * 0.55) solid #2d3b2d;
     transform-origin: top;
     transition: transform 0.4s ease-in-out, z-index 0.2s;
     z-index: 3;
@@ -668,9 +675,9 @@ section {
     left: 0;
     width: 0;
     height: 0;
-    border-left: 150px solid #1e261e;
-    border-right: 150px solid #1e261e;
-    border-bottom: 100px solid #232d23;
+    border-left: calc(var(--envelope-w) / 2) solid #1e261e;
+    border-right: calc(var(--envelope-w) / 2) solid #1e261e;
+    border-bottom: calc(var(--envelope-h) * 0.5) solid #232d23;
     z-index: 2;
     border-radius: 0 0 15px 15px;
 }
@@ -678,8 +685,8 @@ section {
     position: absolute;
     top: 10px;
     left: 15px;
-    width: 270px;
-    height: 180px;
+    width: calc(var(--envelope-w) - 30px);
+    height: calc(var(--envelope-h) - 20px);
     background: #f8fafc;
     border-radius: 10px;
     z-index: 1;
@@ -724,7 +731,7 @@ section {
     z-index: 0;
 }
 .envelope-wrapper:hover .letter, .envelope-wrapper.active .letter {
-    transform: translateY(-120px);
+    transform: translateY(var(--letter-translate));
     z-index: 2;
 }
 .envelope-prompt {
@@ -810,6 +817,22 @@ nav .menu-close {
         gap: 22px;
         text-align: center;
     }
+    nav ul li {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    nav.active ul li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    nav.active ul li:nth-child(1) { transition-delay: 0.1s; }
+    nav.active ul li:nth-child(2) { transition-delay: 0.15s; }
+    nav.active ul li:nth-child(3) { transition-delay: 0.2s; }
+    nav.active ul li:nth-child(4) { transition-delay: 0.25s; }
+    nav.active ul li:nth-child(5) { transition-delay: 0.3s; }
+    nav.active ul li:nth-child(6) { transition-delay: 0.35s; }
+
     nav ul li a {
         font-size: 1.1rem;
         padding: 12px 20px;
@@ -831,6 +854,10 @@ nav .menu-close {
         padding-top: 120px;
         padding-bottom: 60px;
     }
+    .hero-title {
+        font-size: clamp(2.2rem, 8vw, 3.5rem);
+        line-height: 1.2;
+    }
     .hero-socials {
         justify-content: center;
     }
@@ -843,24 +870,84 @@ nav .menu-close {
         height: min(280px, 72vw);
         margin: 0 auto;
     }
+    
+    /* Responsive Skill Grove Grid Layout */
     .skill-plant-container {
-        height: 620px;
-        padding-bottom: 35px;
+        height: auto;
+        padding-bottom: 20px;
     }
     .tree-canvas {
-        transform: scale(0.65);
-        transform-origin: center top;
+        width: 100%;
+        height: auto;
+        display: block;
+        transform: none;
+    }
+    .tree-canvas svg,
+    .tree-canvas .plant-trunk {
+        display: none;
+    }
+    #skills-fruits-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        width: 100%;
+        position: relative;
+        padding: 10px 0;
+    }
+    .skill-fruit {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 16px !important;
+        padding: 20px !important;
+        display: grid !important;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        gap: 4px 15px;
+        align-items: center;
+        animation: none !important;
+        background: rgba(255, 255, 255, 0.02) !important;
+        border: 1px solid rgba(74, 222, 128, 0.1) !important;
+        cursor: default !important;
+        pointer-events: auto !important;
+    }
+    .skill-fruit i {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        font-size: 2rem !important;
+        margin-bottom: 0 !important;
+        transition: none !important;
+    }
+    .skill-fruit .label {
+        grid-column: 2;
+        grid-row: 1;
+        font-size: 0.95rem !important;
+        font-weight: 700;
+        text-transform: none !important;
+        letter-spacing: 0.5px !important;
+        opacity: 0.9;
+        text-align: left;
+    }
+    .skill-fruit .skill-desc {
+        grid-column: 2;
+        grid-row: 2;
+        display: block !important;
+        font-size: 0.8rem !important;
+        color: var(--text-muted);
+        line-height: 1.5;
+        text-align: left;
+        font-weight: 400;
+        text-transform: none;
+        letter-spacing: normal;
+        margin: 0;
     }
     .skill-card-overlay {
-        position: fixed;
-        bottom: 18px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: min(360px, calc(100% - 32px));
-        padding: 22px;
-        z-index: 1600;
+        display: none !important;
     }
-    .card-image {
+
+    .specimen-image {
         height: 180px;
     }
     .card-grid {
@@ -872,8 +959,9 @@ nav .menu-close {
     .project-heading-copy h3 {
         font-size: 1.55rem;
     }
-    .card-links {
+    .specimen-actions {
         flex-direction: column;
+        gap: 10px;
     }
     section {
         padding: 80px 5%;
@@ -882,11 +970,46 @@ nav .menu-close {
         margin-bottom: 40px;
     }
     .envelope-wrapper {
-        width: min(280px, 90vw);
-        height: 180px;
+        --envelope-w: min(280px, 85vw);
+        --envelope-h: 180px;
+        --letter-translate: -100px;
     }
     footer {
         padding: 40px 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 60px 4%;
+    }
+    .section-title {
+        margin-bottom: 15px;
+    }
+    .section-header {
+        margin-bottom: 40px;
+    }
+    header {
+        padding: 12px 4%;
+    }
+    .logo {
+        font-size: 1.05rem;
+    }
+    #mobile-menu-toggle {
+        padding: 8px;
+    }
+    .specimen-card {
+        padding: 10px;
+        border-radius: 20px;
+    }
+    .specimen-content {
+        padding: 0 5px 10px;
+    }
+    .specimen-title h3 {
+        font-size: 1.35rem;
+    }
+    .company-name {
+        font-size: 1rem;
     }
 }
 
