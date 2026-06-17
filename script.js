@@ -298,6 +298,19 @@ const projectsData = [
         link: "https://github.com/Aradhya-Bhagwat/GreenAura.git"
     },
     {
+        title: "Interactive Calculator",
+        eyebrow: "SQL & NoSQL Integration",
+        description: "A full-stack calculator application featuring user authentication and calculation history persistence, designed with a dynamic backend adapter supporting both MySQL and MongoDB.",
+        image: "Assets/calculator-screenshot.png",
+        icon: "fa-solid fa-calculator",
+        accent: "accent-emerald",
+        status: "Database Build",
+        year: "2026",
+        tags: ["Node.js", "Express", "MySQL", "MongoDB", "JWT Auth", "Vanilla JS"],
+        highlights: ["Dual-Database Switcher", "Persistent History", "Secure JWT Authentication"],
+        link: "https://github.com/Aradhya-Bhagwat/Calculator.git"
+    },
+    {
         title: "Banking System",
         eyebrow: "The Beginning",
         description: "An initial project demonstrating Object-Oriented Programming (OOP) concepts in C++. This terminal-based application highlights my early foundations in software development.",
