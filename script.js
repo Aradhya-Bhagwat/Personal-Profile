@@ -38,61 +38,172 @@ function type() {
 const skillsData = [
     {
         name: "Agile Workflow",
+        category: "devops",
+        color: "#00a8ff",
         icon: "fa-solid fa-users-gear",
         desc: "Experienced in cross-functional team collaboration, Scrum practices, and managing structured workflows for timely delivery.",
-        position: { x: "15%", y: "45%" },
+        position: { x: "12%", y: "65%" },
         stemAngle: "-25deg",
         delay: "0.1s"
     },
     {
-        name: "IoT & Sensors",
-        icon: "fa-solid fa-microchip",
-        desc: "Researching and developing smart sensor networks for environmental monitoring, agriculture, and sustainable data-driven solutions.",
-        position: { x: "28%", y: "22%" },
-        stemAngle: "-15deg",
+        name: "Playwright",
+        category: "devops",
+        color: "#2e8b57",
+        icon: "fa-solid fa-vial-circle-check",
+        desc: "Automating reliable end-to-end browser testing, capturing UI regressions, and integrating automated QA runs.",
+        position: { x: "23%", y: "72%" },
+        stemAngle: "-20deg",
+        delay: "0.15s"
+    },
+    {
+        name: "HTML",
+        category: "frontend",
+        color: "#e34f26",
+        icon: "fa-brands fa-html5",
+        desc: "Structured semantic HTML5 markup for accessible, search-engine-friendly, and modern web layouts.",
+        position: { x: "15%", y: "48%" },
+        stemAngle: "-22deg",
         delay: "0.2s"
     },
     {
-        name: "Swift Ecosystem",
-        icon: "fa-brands fa-swift",
-        desc: "My core environment for building fluid, native Apple-platform experiences with SwiftData, AVFoundation, and declarative UI.",
-        position: { x: "44%", y: "12%" },
-        stemAngle: "-5deg",
+        name: "CSS",
+        category: "frontend",
+        color: "#1572b6",
+        icon: "fa-brands fa-css3-alt",
+        desc: "Advanced CSS styling, grid/flexbox layouts, responsive design, animations, and custom UI design systems.",
+        position: { x: "27%", y: "53%" },
+        stemAngle: "-15deg",
+        delay: "0.25s"
+    },
+    {
+        name: "Python",
+        category: "lang",
+        color: "#3776ab",
+        icon: "fa-brands fa-python",
+        desc: "Writing clean script logic, data analysis, and building machine learning interfaces with Python frameworks.",
+        position: { x: "20%", y: "28%" },
+        stemAngle: "-18deg",
         delay: "0.3s"
     },
     {
+        name: "MongoDB",
+        category: "backend",
+        color: "#47a248",
+        icon: "fa-solid fa-leaf",
+        desc: "Designing flexible schema models, aggregation pipelines, and querying document databases in NoSQL architectures.",
+        position: { x: "32%", y: "33%" },
+        stemAngle: "-12deg",
+        delay: "0.35s"
+    },
+    {
         name: "Supabase",
+        category: "backend",
+        color: "#3ecf8e",
         icon: "fa-solid fa-database",
-        desc: "My go-to backend-as-a-service for secure authentication, real-time databases, and seamless integration with applications.",
-        position: { x: "58%", y: "12%" },
-        stemAngle: "5deg",
+        desc: "Configuring relational PostgreSQL instances, instant REST APIs, real-time subscriptions, and security rules.",
+        position: { x: "36%", y: "15%" },
+        stemAngle: "-8deg",
         delay: "0.4s"
     },
     {
-        name: "Machine Learning",
-        icon: "fa-solid fa-brain",
-        desc: "Integrating predictive models and intelligent algorithms, from bird migration tracking to complex risk assessment engines.",
-        position: { x: "74%", y: "22%" },
-        stemAngle: "15deg",
+        name: "IoT & Sensors",
+        category: "specialized",
+        color: "#00ff7f",
+        icon: "fa-solid fa-microchip",
+        desc: "Researching and developing smart sensor networks for environmental monitoring, agriculture, and sustainable data-driven solutions.",
+        position: { x: "45%", y: "10%" },
+        stemAngle: "-3deg",
+        delay: "0.45s"
+    },
+    {
+        name: "Swift Ecosystem",
+        category: "lang",
+        color: "#f05138",
+        icon: "fa-brands fa-swift",
+        desc: "My core environment for building fluid, native Apple-platform experiences with SwiftData, AVFoundation, and declarative UI.",
+        position: { x: "55%", y: "10%" },
+        stemAngle: "3deg",
         delay: "0.5s"
     },
     {
-        name: "UI/UX Design",
-        icon: "fa-solid fa-wand-magic-sparkles",
-        desc: "Designing immersive, nature-inspired digital interfaces that balance beautiful aesthetics with intuitive user experiences.",
-        position: { x: "32%", y: "55%" },
-        stemAngle: "-10deg",
+        name: "Machine Learning",
+        category: "specialized",
+        color: "#ba55d3",
+        icon: "fa-solid fa-brain",
+        desc: "Integrating predictive models and intelligent algorithms, from bird migration tracking to complex risk assessment engines.",
+        position: { x: "64%", y: "15%" },
+        stemAngle: "8deg",
+        delay: "0.55s"
+    },
+    {
+        name: "MySQL",
+        category: "backend",
+        color: "#00758f",
+        icon: "fa-solid fa-server",
+        desc: "Writing optimized SQL queries, managing relations, indexing, and ensuring transaction safety in relational systems.",
+        position: { x: "68%", y: "33%" },
+        stemAngle: "12deg",
+        delay: "0.6s"
+    },
+    {
+        name: "Firebase",
+        category: "backend",
+        color: "#ffca28",
+        icon: "fa-solid fa-fire",
+        desc: "Setting up real-time databases, secure OAuth user authentication, cloud functions, and hosting platforms.",
+        position: { x: "80%", y: "28%" },
+        stemAngle: "18deg",
+        delay: "0.65s"
+    },
+    {
+        name: "JavaScript",
+        category: "frontend",
+        color: "#f7df1e",
+        icon: "fa-brands fa-js",
+        desc: "Modern ES6+ JavaScript, DOM manipulation, asynchronous programming, event handling, and client-side logic.",
+        position: { x: "73%", y: "53%" },
+        stemAngle: "15deg",
         delay: "0.7s"
     },
     {
-        name: "C++ & OOP",
+        name: "C/C++",
+        category: "lang",
+        color: "#00599c",
         icon: "fa-solid fa-code",
-        desc: "Strong foundational knowledge in Object-Oriented Programming, dynamic memory allocation, and core software design principles.",
-        position: { x: "68%", y: "55%" },
-        stemAngle: "10deg",
+        desc: "Strong foundational knowledge in Object-Oriented Programming, dynamic memory allocation, and core software design principles in C and C++.",
+        position: { x: "85%", y: "48%" },
+        stemAngle: "22deg",
+        delay: "0.75s"
+    },
+    {
+        name: "Azure DevOps",
+        category: "devops",
+        color: "#0078d7",
+        icon: "fa-solid fa-infinity",
+        desc: "Configuring CI/CD pipelines, managing boards, code repositories, and automating software release workflows.",
+        position: { x: "77%", y: "72%" },
+        stemAngle: "20deg",
         delay: "0.8s"
+    },
+    {
+        name: "UI/UX Design",
+        category: "frontend",
+        color: "#ff6b81",
+        icon: "fa-solid fa-wand-magic-sparkles",
+        desc: "Designing immersive, nature-inspired digital interfaces that balance beautiful aesthetics with intuitive user experiences.",
+        position: { x: "88%", y: "65%" },
+        stemAngle: "25deg",
+        delay: "0.85s"
     }
 ];
+
+function hexToRgba(hex, alpha) {
+    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    const fullHex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(fullHex);
+    return result ? `rgba(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}, ${alpha})` : `rgba(74, 222, 128, ${alpha})`;
+}
 
 function initSkillPlant() {
     const container = document.getElementById('skills-fruits-container');
@@ -105,14 +216,20 @@ function initSkillPlant() {
 
     if (!container) return;
 
-    skillsData.forEach(skill => {
+    skillsData.forEach((skill, index) => {
         const fruit = document.createElement('button');
         fruit.type = 'button';
         fruit.className = `skill-fruit`;
+        fruit.setAttribute('data-category', skill.category);
+        
+        // Dynamic style variables for individual category glows
         fruit.style.setProperty('--x', skill.position.x);
         fruit.style.setProperty('--y', skill.position.y);
         fruit.style.setProperty('--delay', skill.delay);
         fruit.style.setProperty('--stem-angle', skill.stemAngle);
+        fruit.style.setProperty('--skill-color', skill.color);
+        fruit.style.setProperty('--skill-color-glow-thin', hexToRgba(skill.color, 0.2));
+        fruit.style.setProperty('--skill-color-glow-thick', hexToRgba(skill.color, 0.45));
 
         fruit.innerHTML = `
             <i class="${skill.icon}"></i>
@@ -124,11 +241,29 @@ function initSkillPlant() {
             iconDisplay.className = skill.icon;
             nameDisplay.textContent = skill.name;
             descDisplay.textContent = skill.desc;
+            
+            // Set dynamic variables for custom detail card glows
+            overlay.style.setProperty('--card-color', skill.color);
+            overlay.style.setProperty('--card-color-glow', hexToRgba(skill.color, 0.25));
+            
             overlay.classList.add('active');
+        });
+
+        // Add mouseenter/mouseleave to highlight branches on hover
+        fruit.addEventListener('mouseenter', () => {
+            const branch = document.getElementById(`branch-path-${index}`);
+            if (branch) branch.classList.add('highlighted');
+        });
+        
+        fruit.addEventListener('mouseleave', () => {
+            const branch = document.getElementById(`branch-path-${index}`);
+            if (branch) branch.classList.remove('highlighted');
         });
 
         container.appendChild(fruit);
     });
+
+
 
     closeBtn.addEventListener('click', () => {
         overlay.classList.remove('active');
@@ -160,15 +295,26 @@ function drawBranches() {
     const trunkY = height * 0.9;
 
     const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-    defs.innerHTML = `
-        <linearGradient id="branch-gradient" x1="0%" y1="100%" x2="0%" y2="0%">
+    
+    // Dynamically generate unique branch gradients
+    skillsData.forEach((skill, index) => {
+        const grad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+        grad.setAttribute('id', `branch-grad-${index}`);
+        grad.setAttribute('x1', '0%');
+        grad.setAttribute('y1', '100%');
+        grad.setAttribute('x2', '0%');
+        grad.setAttribute('y2', '0%');
+        
+        grad.innerHTML = `
             <stop offset="0%" stop-color="#1a2e1a" stop-opacity="0.8" />
-            <stop offset="100%" stop-color="rgba(74, 222, 128, 0.5)" />
-        </linearGradient>
-    `;
+            <stop offset="100%" stop-color="${skill.color}" stop-opacity="0.65" />
+        `;
+        defs.appendChild(grad);
+    });
+    
     svg.appendChild(defs);
 
-    skillsData.forEach(skill => {
+    skillsData.forEach((skill, index) => {
         const xPercent = parseFloat(skill.position.x) / 100;
         const yPercent = parseFloat(skill.position.y) / 100;
 
@@ -184,10 +330,14 @@ function drawBranches() {
         const d = `M ${trunkX} ${trunkY} C ${cp1X} ${cp1Y}, ${cp2X} ${cp2Y}, ${fruitCenterX} ${fruitCenterY}`;
 
         path.setAttribute('d', d);
+        path.setAttribute('id', `branch-path-${index}`);
         path.setAttribute('fill', 'none');
-        path.setAttribute('stroke', 'url(#branch-gradient)');
+        path.setAttribute('stroke', `url(#branch-grad-${index})`);
         path.setAttribute('stroke-width', '3');
-        path.setAttribute('class', 'tree-branch-path');
+        // Set inline variables so the keyframes can inherit the custom glow colors
+        path.style.setProperty('--skill-color', skill.color);
+        path.style.setProperty('--skill-color-glow-thin', hexToRgba(skill.color, 0.2));
+        path.setAttribute('class', `tree-branch-path cat-${skill.category}`);
 
         svg.appendChild(path);
     });
