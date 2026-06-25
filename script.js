@@ -221,7 +221,7 @@ function initSkillPlant() {
         fruit.type = 'button';
         fruit.className = `skill-fruit`;
         fruit.setAttribute('data-category', skill.category);
-        
+
         // Dynamic style variables for individual category glows
         fruit.style.setProperty('--x', skill.position.x);
         fruit.style.setProperty('--y', skill.position.y);
@@ -241,11 +241,11 @@ function initSkillPlant() {
             iconDisplay.className = skill.icon;
             nameDisplay.textContent = skill.name;
             descDisplay.textContent = skill.desc;
-            
+
             // Set dynamic variables for custom detail card glows
             overlay.style.setProperty('--card-color', skill.color);
             overlay.style.setProperty('--card-color-glow', hexToRgba(skill.color, 0.25));
-            
+
             overlay.classList.add('active');
         });
 
@@ -254,7 +254,7 @@ function initSkillPlant() {
             const branch = document.getElementById(`branch-path-${index}`);
             if (branch) branch.classList.add('highlighted');
         });
-        
+
         fruit.addEventListener('mouseleave', () => {
             const branch = document.getElementById(`branch-path-${index}`);
             if (branch) branch.classList.remove('highlighted');
@@ -295,7 +295,7 @@ function drawBranches() {
     const trunkY = height * 0.9;
 
     const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-    
+
     // Dynamically generate unique branch gradients
     skillsData.forEach((skill, index) => {
         const grad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
@@ -304,14 +304,14 @@ function drawBranches() {
         grad.setAttribute('y1', '100%');
         grad.setAttribute('x2', '0%');
         grad.setAttribute('y2', '0%');
-        
+
         grad.innerHTML = `
             <stop offset="0%" stop-color="#1a2e1a" stop-opacity="0.8" />
             <stop offset="100%" stop-color="${skill.color}" stop-opacity="0.65" />
         `;
         defs.appendChild(grad);
     });
-    
+
     svg.appendChild(defs);
 
     skillsData.forEach((skill, index) => {
@@ -408,6 +408,19 @@ function initExperience() {
 }
 
 const projectsData = [
+    {
+        title: "Playwright Automation Suite",
+        eyebrow: "E2E Quality Assurance",
+        description: "An automated end-to-end testing suite designed for this personal profile website using Playwright. Features visual regression testing, accessibility audits, and cross-browser quality verification.",
+        image: "Assets/playwright-testing.png",
+        icon: "fa-solid fa-vial-circle-check",
+        accent: "accent-green",
+        status: "QA Build",
+        year: "2026",
+        tags: ["Playwright", "TypeScript", "E2E Testing", "CI/CD Automation"],
+        highlights: ["Cross-browser verification", "Visual regression check", "GitHub Actions Integration"],
+        link: "https://github.com/Aradhya-Bhagwat/Personal-Profile-Automation-Testing.git"
+    },
     {
         title: "SkyTrails",
         eyebrow: "Featured iOS Product",
