@@ -167,6 +167,16 @@ const skillsData = [
         delay: "0.7s"
     },
     {
+        name: "Postman API",
+        category: "devops",
+        color: "#ff6c37",
+        icon: "fa-solid fa-paper-plane",
+        desc: "Testing and validating REST APIs with Postman collections, requests, and environment configurations.",
+        position: { x: "62%", y: "53%" },
+        stemAngle: "8deg",
+        delay: "0.725s"
+    },
+    {
         name: "C/C++",
         category: "lang",
         color: "#00599c",
